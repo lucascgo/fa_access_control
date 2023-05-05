@@ -1,0 +1,10 @@
+[Unit]
+Description=Unit for starting a basic Django app 
+
+[Service]
+Restart=on-failure
+WorkingDirectory=/home/lucascgo/fa_access_control
+ExecStart=/home/lucascgo/fa_access_control/venv/bin/python manage.py runserver 0.0.0.0:8000
+
+[Install]
+WantedBy=multi-user.target
