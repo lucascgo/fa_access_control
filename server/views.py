@@ -18,8 +18,8 @@ def qrcode(request):
     if request.method == 'GET':
         code_base64 = request.GET.get('Card')
         code_decode = base64.b64decode(code_base64).decode('utf-8')
-        qrcode_full = code_decode[43:]
-        qrcode_cnpj = code_decode[43:67]
+        qrcode_full = code_decode[44:]
+        qrcode_cnpj = code_decode[44:68]
 
         if code_decode == MASTER:
             res = data('open')
@@ -36,6 +36,3 @@ def qrcode(request):
             res = data('reject')
 
     return HttpResponse(res)
-
-    # response = requests.get('http://192.168.0.180/cdor.cgi?open=1&door=1', headers={'Authorization': 'Basic YWRtaW46ODg4ODg4'})
-    # return HttpResponse("Hello, world. You're at the polls index.")
